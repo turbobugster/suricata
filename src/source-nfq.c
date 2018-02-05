@@ -1021,7 +1021,10 @@ void ReceiveNFQThreadExitStats(ThreadVars *tv, void *data)
  */
 TmEcode NFQSetVerdict(Packet *p)
 {
-  int idmod;
+
+#ifdef NFQ_MEMSEG
+    int idmod;
+#endif
     int iter = 0;
     int ret = 0;
     uint32_t verdict = NF_ACCEPT;
